@@ -1,0 +1,109 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+
+function Script()
+    local Window = Library.CreateLib("0Comp|Script", "DarkTheme")
+
+
+    local Main = Window:NewTab("•Aimlock/Esp•")
+    local MainSection = Main:NewSection("Main")
+
+
+    -- Script
+
+    MainSection:NewButton("SilentAim", "Press Q to Lock | made by tier1josh.", function()
+        local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/tier1joshh/Silentaim/main/SilentAim"))()
+    end)
+
+
+    MainSection:NewButton("CamLock", "Press Q to Lock | made by tier1josh.", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/tier1joshh/camlock/main/camlock'),true))()
+    end)
+
+
+    MainSection:NewButton("Anti lock", "Press C to enable anti Anti lock | made by tier1josh.", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tier1joshh/AntiAimlock/main/AntiAimlock"))()
+    end)
+
+
+    MainSection:NewButton("AimViewer", "Views Aim | made by tier1josh.", function()
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/tier1joshh/Aimviewer./main/AimViewer.'),true))()
+    end) 
+
+    local MainSection = Main:NewSection("Esp")
+
+    MainSection:NewButton("Esp", "Esp | made by tier1josh.", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tier1joshh/esp/main/esp"))()
+    end) 
+
+  
+    local Main = Window:NewTab("•Others• ")
+
+    local MainSection = Main:NewSection("Memory Spoofer")
+
+    MainSection:NewButton("MemorySpoofer| Press once only.", "Spoofs Memory press once only.", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tier1joshh/Memory-Spoofer/main/MemorySpoofer"))()
+    end)
+
+    local MainSection = Main:NewSection("Other")
+
+    MainSection:NewButton("SuperSpeed", "Press X to toggle speed.| V -Speed.| B +Speed", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tier1joshh/Speed/main/Speed"))()
+    end) 
+
+    MainSection:NewButton("NoClip", "Walk Through Objects", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tier1joshh/Noclip/main/Noclip"))()
+    end) 
+
+
+    MainSection:NewButton("Animation Pack", "Free animation pack.| V -Speed.| B +Speed", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/tier1joshh/Animation-pack/main/Animation%20pack"))()
+    end) 
+
+
+    local Main = Window:NewTab("•Teleport•")
+    local MainSection = Main:NewSection("Teleport")
+
+    MainSection:NewTextBox("Player Username", "Enter EXACT username to teleport", function(username)
+        _G.targetUsername = username
+    end)
+    
+    MainSection:NewButton("Teleport", "Click to teleport", function()
+     local Players = game:GetService("Players")
+     local player = Players.LocalPlayer
+     local targetPlayer = Players:FindFirstChild(_G.targetUsername)
+     if targetPlayer and targetPlayer.Character then
+         player.Character.HumanoidRootPart.CFrame = targetPlayer.Character.HumanoidRootPart.CFrame
+     else
+         print("Target player not found or does not have a character.")
+     end
+ end)
+
+    local Main = Window:NewTab("•KeyBind•")
+    local MainSection = Main:NewSection("KeyBind")
+
+    MainSection:NewKeybind("KeybindText", "Change Keybind to toggle Gui", Enum.KeyCode.Z, function()
+        Library:ToggleUI()
+    end)
+
+    -- Credits
+
+
+    local Credits = Window:NewTab("•Credits•")
+    local CreditsSection = Credits:NewSection(" Credits to | .gg/z4XD93xHjQ") 
+
+    CreditsSection:NewLabel("•yvng.jad#4989•| developer")
+
+    CreditsSection:NewLabel("•jr2shiesty#0001•| Gui creator")
+
+
+end
+
+if game.PlaceId == 2788229376 then
+    Script()
+end 
+
+
+setfpscap(10000)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tier1joshh/ChatSpy/main/ChatSpy"))()
